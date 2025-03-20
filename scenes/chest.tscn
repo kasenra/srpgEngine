@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://hoy1f3kfokxd"]
+
+[ext_resource type="Texture2D" uid="uid://tywy83u1sofw" path="res://texture/ChestAtlas.png" id="1_oii8l"]
+[ext_resource type="Script" uid="uid://6nh5l2na2s47" path="res://scripts/chest.gd" id="1_sy5e1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sy5e1"]
+atlas = ExtResource("1_oii8l")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gqd3d"]
+load_path = "res://.godot/imported/ChestAtlas.png-761186fdff2b37f819cbbf054a46117e.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yue2o"]
+atlas = SubResource("CompressedTexture2D_gqd3d")
+region = Rect2(64, 0, 64, 64)
+
+[node name="Chest" type="Node2D"]
+script = ExtResource("1_sy5e1")
+
+[node name="ClosedSprite" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_sy5e1")
+
+[node name="OpenSprite" type="Sprite2D" parent="."]
+visible = false
+texture = SubResource("AtlasTexture_yue2o")
