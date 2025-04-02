@@ -1,0 +1,463 @@
+[gd_scene load_steps=27 format=4 uid="uid://b0a01u4g00t2s"]
+
+[ext_resource type="Texture2D" uid="uid://domxfky40v82w" path="res://texture/noisytiles.png" id="1_6ao0j"]
+[ext_resource type="PackedScene" uid="uid://bl5wv40mpvreh" path="res://scenes/unit.tscn" id="2_brx37"]
+[ext_resource type="PackedScene" uid="uid://rk245yl41f84" path="res://scenes/chapter_test.tscn" id="2_p21b5"]
+[ext_resource type="PackedScene" uid="uid://bflfw0ffetw38" path="res://scenes/gameboard.tscn" id="3_57l66"]
+[ext_resource type="Script" uid="uid://bpgytvtjqqcvv" path="res://scripts/classes/unitClass.gd" id="5_36mki"]
+[ext_resource type="Script" uid="uid://bbj3a7xygmpcd" path="res://scripts/debug_ui.gd" id="5_bdpbv"]
+[ext_resource type="Texture2D" uid="uid://6i450bpmoji7" path="res://texture/burninggearthing.png" id="5_kddbv"]
+[ext_resource type="Script" uid="uid://dipeqoew01vju" path="res://scripts/characters/character.gd" id="5_u56q5"]
+[ext_resource type="Script" uid="uid://c6clvy1t8udax" path="res://scripts/unit_factory/UnitStats.gd" id="6_4mr4y"]
+[ext_resource type="Script" uid="uid://cnnegi00nwp05" path="res://scripts/items/weapon.gd" id="6_6751p"]
+[ext_resource type="Script" uid="uid://jic3id7apdl5" path="res://scripts/skills/skill.gd" id="6_o5gif"]
+[ext_resource type="Texture2D" uid="uid://fx3e2pl2udvu" path="res://texture/paddlelookingthing.png" id="6_pw728"]
+[ext_resource type="Script" uid="uid://dfgihdxam7ebq" path="res://scripts/items/item.gd" id="8_o5gif"]
+[ext_resource type="Script" uid="uid://cp3rsgeodfefh" path="res://scripts/inventories/inventory.gd" id="9_34ald"]
+[ext_resource type="Script" uid="uid://bwq2bpxheccxm" path="res://scenes/debug_weapon_select.gd" id="15_uutrq"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dduha"]
+texture = ExtResource("1_6ao0j")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_ly8mw"]
+tile_size = Vector2i(64, 64)
+sources/1 = SubResource("TileSetAtlasSource_dduha")
+
+[sub_resource type="Resource" id="Resource_34ald"]
+script = ExtResource("5_36mki")
+name = "General McFucker"
+base_mhp = 19
+base_str = 8
+base_mag = 0
+base_skl = 5
+base_spd = 3
+base_lck = 3
+base_def = 8
+base_res = 1
+base_mov = 4
+growth_mhp = 20
+growth_str = 20
+growth_mag = 0
+growth_skl = 15
+growth_spd = 5
+growth_lck = 10
+growth_def = 20
+growth_res = 0
+max_mhp = 45
+max_str = 24
+max_mag = 15
+max_skl = 22
+max_spd = 17
+max_lck = 22
+max_def = 26
+max_res = 18
+mType = 0
+proficiencies = Dictionary[int, int]({
+1: 3
+})
+tier = 0
+skills = Array[ExtResource("6_o5gif")]([])
+metadata/_custom_type_script = "uid://bpgytvtjqqcvv"
+
+[sub_resource type="Resource" id="Resource_36mki"]
+script = ExtResource("5_u56q5")
+name = "Circulus Freaky"
+base_mhp = 3
+base_str = 4
+base_mag = 2
+base_spd = 4
+base_skl = 4
+base_lck = 5
+base_def = 6
+base_res = 3
+growth_mhp = 55
+growth_str = 50
+growth_mag = 0
+growth_skl = 35
+growth_spd = 20
+growth_lck = 25
+growth_def = 60
+growth_res = 20
+max_mhp = 40
+max_str = 20
+max_mag = 10
+max_skl = 20
+max_spd = 15
+max_lck = 15
+max_def = 30
+max_res = 10
+availableSupports = Dictionary[ExtResource("5_u56q5"), int]({})
+supportRates = Dictionary[ExtResource("5_u56q5"), float]({})
+metadata/_custom_type_script = "uid://dipeqoew01vju"
+
+[sub_resource type="Resource" id="Resource_a5r8l"]
+script = ExtResource("6_6751p")
+might = 5
+avoid = 0
+crit = 0
+damageType = 0
+reach = 0
+profReq = 1
+weaponType = 1
+equipped = false
+name = "Zaby Zitch Lance"
+thumbPath = ""
+discardable = true
+tradeable = true
+metadata/_custom_type_script = "uid://cnnegi00nwp05"
+
+[sub_resource type="Resource" id="Resource_lcvph"]
+script = ExtResource("6_6751p")
+might = 8
+avoid = 20
+crit = 45
+damageType = 1
+reach = 0
+profReq = 4
+weaponType = 1
+equipped = false
+name = "Big Cock Spear"
+thumbPath = ""
+discardable = true
+tradeable = true
+metadata/_custom_type_script = "uid://cnnegi00nwp05"
+
+[sub_resource type="Resource" id="Resource_eukwx"]
+script = ExtResource("9_34ald")
+inv = Array[ExtResource("8_o5gif")]([SubResource("Resource_a5r8l"), SubResource("Resource_lcvph")])
+metadata/_custom_type_script = "uid://cp3rsgeodfefh"
+
+[sub_resource type="Resource" id="Resource_6751p"]
+script = ExtResource("6_4mr4y")
+uName = "Circle Freak"
+identity = SubResource("Resource_36mki")
+level = 0
+charClass = SubResource("Resource_34ald")
+hp = 0
+mhp = 0
+strength = 0
+magic = 0
+speed = 0
+skill = 0
+luck = 0
+defense = 0
+resistance = 0
+move = 0
+moveType = 0
+inv = SubResource("Resource_eukwx")
+allegiance = 0
+dead = false
+growthRns = Dictionary[int, Array]({})
+metadata/_custom_type_script = "uid://c6clvy1t8udax"
+
+[sub_resource type="Resource" id="Resource_o5gif"]
+script = ExtResource("6_4mr4y")
+uName = ""
+level = 0
+hp = 0
+mhp = 0
+strength = 0
+magic = 0
+speed = 0
+skill = 0
+luck = 0
+defense = 0
+resistance = 0
+move = 0
+moveType = 0
+allegiance = 0
+dead = false
+growthRns = Dictionary[int, Array]({})
+metadata/_custom_type_script = "uid://c6clvy1t8udax"
+
+[sub_resource type="Resource" id="Resource_lt4wf"]
+script = ExtResource("6_4mr4y")
+uName = ""
+level = 0
+hp = 0
+mhp = 0
+strength = 0
+magic = 0
+speed = 0
+skill = 0
+luck = 0
+defense = 0
+resistance = 0
+move = 0
+moveType = 0
+allegiance = 1
+dead = false
+growthRns = Dictionary[int, Array]({})
+metadata/_custom_type_script = "uid://c6clvy1t8udax"
+
+[sub_resource type="Resource" id="Resource_uutrq"]
+script = ExtResource("6_6751p")
+might = 10
+avoid = 10
+crit = 10
+damageType = 1
+reach = 0
+profReq = 2
+weaponType = 5
+equipped = false
+name = "Hot Dog"
+thumbPath = ""
+discardable = false
+tradeable = false
+metadata/_custom_type_script = "uid://cnnegi00nwp05"
+
+[node name="TestMap" type="Node2D"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+visible = false
+position = Vector2(1, 2)
+tile_map_data = PackedByteArray("AAAAAAAAAQAAAAAAAAABAAAAAQAAAAAAAAAAAAEAAQAAAAAAAAABAAEAAQAAAAAAAAACAAAAAQAAAAAAAAACAAEAAQAAAAAAAAADAAAAAQAAAAAAAAAEAAAAAQAAAAAAAAADAAEAAQAAAAAAAAAEAAEAAQAAAAAAAAAAAAIAAQAAAAAAAAAAAAMAAQAAAAAAAAABAAIAAQAAAAAAAAABAAMAAQAAAAAAAAAAAAQAAQAAAAAAAAAAAAUAAQAAAAAAAAABAAQAAQAAAAAAAAABAAUAAQAAAAAAAAACAAIAAQAAAAAAAAACAAMAAQAAAAAAAAADAAIAAQAAAAAAAAADAAMAAQAAAAAAAAACAAQAAQAAAAAAAAACAAUAAQAAAAAAAAADAAQAAQAAAAAAAAADAAUAAQAAAAAAAAAEAAIAAQAAAAAAAAAEAAMAAQAAAAAAAAAFAAIAAQAAAAAAAAAFAAMAAQAAAAAAAAAEAAQAAQAAAAAAAAAEAAUAAQAAAAAAAAAFAAQAAQAAAAAAAAAFAAUAAQAAAAAAAAAGAAIAAQAAAAAAAAAGAAMAAQAAAAAAAAAGAAQAAQAAAAAAAAAGAAUAAQAAAAAAAAAFAAAAAQAAAAAAAAAFAAEAAQAAAAAAAAAGAAAAAQAAAAAAAAAGAAEAAQAAAAAAAAAHAAAAAQAAAAAAAAAHAAEAAQAAAAAAAAAHAAIAAQAAAAAAAAAHAAMAAQAAAAAAAAAHAAQAAQAAAAAAAAAHAAUAAQAAAAAAAAAIAAAAAQAAAAAAAAAIAAEAAQAAAAAAAAAIAAIAAQAAAAAAAAAIAAMAAQAAAAAAAAAIAAQAAQAAAAAAAAAIAAUAAQAAAAAAAAAAAAYAAQAAAAAAAAAAAAcAAQAAAAAAAAABAAYAAQAAAAAAAAABAAcAAQAAAAAAAAACAAYAAQAAAAAAAAACAAcAAQAAAAAAAAADAAYAAQAAAAAAAAADAAcAAQAAAAAAAAAEAAYAAQAAAAAAAAAEAAcAAQAAAAAAAAAFAAYAAQAAAAAAAAAFAAcAAQAAAAAAAAAGAAYAAQAAAAAAAAAGAAcAAQAAAAAAAAAHAAYAAQAAAAAAAAAHAAcAAQAAAAAAAAAJAAAAAQAAAAAAAAAJAAEAAQAAAAAAAAAJAAIAAQAAAAAAAAAJAAMAAQAAAAAAAAAJAAQAAQAAAAAAAAAJAAUAAQAAAAAAAAAIAAYAAQAAAAAAAAAIAAcAAQAAAAAAAAAJAAYAAQAAAAAAAAAJAAcAAQAAAAAAAAA=")
+tile_set = SubResource("TileSet_ly8mw")
+
+[node name="BattleMap" parent="." instance=ExtResource("2_p21b5")]
+
+[node name="Gameboard" parent="." node_paths=PackedStringArray("map") instance=ExtResource("3_57l66")]
+map = NodePath("../BattleMap")
+
+[node name="Unit" parent="Gameboard" instance=ExtResource("2_brx37")]
+position = Vector2(160, 32)
+stat = SubResource("Resource_6751p")
+cell = Vector2(2, 0)
+
+[node name="Unit2" parent="Gameboard" instance=ExtResource("2_brx37")]
+position = Vector2(800, 288)
+stat = SubResource("Resource_o5gif")
+tex = ExtResource("5_kddbv")
+cell = Vector2(12, 4)
+
+[node name="Unit3" parent="Gameboard" instance=ExtResource("2_brx37")]
+position = Vector2(352, 416)
+stat = SubResource("Resource_lt4wf")
+tex = ExtResource("6_pw728")
+cell = Vector2(5, 6)
+
+[node name="DebugUI" type="Control" parent="." node_paths=PackedStringArray("gb", "u")]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -44.0
+offset_top = 18.0
+offset_right = -4.0
+offset_bottom = 58.0
+script = ExtResource("5_bdpbv")
+gb = NodePath("../Gameboard")
+u = NodePath("../Gameboard/Unit")
+hd = SubResource("Resource_uutrq")
+
+[node name="CheckDoors" type="Button" parent="DebugUI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.639
+anchor_top = 1.605
+anchor_right = 9.562
+anchor_bottom = 9.528
+offset_left = -248.56
+offset_top = -82.2
+offset_right = -408.48
+offset_bottom = -359.12
+text = "Check for Doors"
+
+[node name="OpenDoors" type="Button" parent="DebugUI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.673
+anchor_top = 1.69
+anchor_right = 9.562
+anchor_bottom = 9.562
+offset_left = -251.92
+offset_top = -44.6
+offset_right = -411.48
+offset_bottom = -323.48
+text = "Open Doors"
+
+[node name="CheckChests" type="Button" parent="DebugUI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.639
+anchor_top = 1.605
+anchor_right = 9.562
+anchor_bottom = 9.528
+offset_left = -252.56
+offset_top = -6.2
+offset_right = -412.48
+offset_bottom = -283.12
+text = "Check for Chests"
+
+[node name="OpenChests" type="Button" parent="DebugUI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.673
+anchor_top = 1.69
+anchor_right = 9.562
+anchor_bottom = 9.562
+offset_left = -249.92
+offset_top = 31.4
+offset_right = -409.48
+offset_bottom = -247.48
+text = "Open Chests"
+
+[node name="CheckInventory" type="Button" parent="DebugUI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.639
+anchor_top = 1.605
+anchor_right = 9.562
+anchor_bottom = 9.528
+offset_left = 201.44
+offset_top = 107.8
+offset_right = 41.52
+offset_bottom = -169.12
+text = "Print Inventory"
+
+[node name="SortInventory" type="Button" parent="DebugUI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.639
+anchor_top = 1.605
+anchor_right = 9.562
+anchor_bottom = 9.528
+offset_left = -523.56
+offset_top = -30.2
+offset_right = -683.48
+offset_bottom = -307.12
+text = "Sort Inventory"
+
+[node name="AddDogsToInv" type="Button" parent="DebugUI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.639
+anchor_top = 1.605
+anchor_right = 9.562
+anchor_bottom = 9.528
+offset_left = 60.44
+offset_top = 198.8
+offset_right = -51.48
+offset_bottom = -78.12
+text = "Add Hot Dog to Inventory"
+
+[node name="EquipItem0" type="Button" parent="DebugUI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.639
+anchor_top = 1.605
+anchor_right = 9.562
+anchor_bottom = 9.528
+offset_left = 212.44
+offset_top = 152.8
+offset_right = 52.52
+offset_bottom = -124.12
+text = "Equip Weapon 1"
+
+[node name="PrintStats" type="Button" parent="DebugUI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.639
+anchor_top = 1.605
+anchor_right = 9.562
+anchor_bottom = 9.528
+offset_left = 47.44
+offset_top = 81.8
+offset_right = -112.48
+offset_bottom = -195.12
+text = "Print Stats"
+
+[node name="LevelUp" type="Button" parent="DebugUI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.639
+anchor_top = 1.605
+anchor_right = 9.562
+anchor_bottom = 9.528
+offset_left = 51.44
+offset_top = 37.8
+offset_right = -108.48
+offset_bottom = -239.12
+text = "Level Up"
+
+[node name="Initialize" type="Button" parent="DebugUI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.639
+anchor_top = 1.605
+anchor_right = 9.562
+anchor_bottom = 9.528
+offset_left = 51.44
+offset_top = -7.2
+offset_right = -108.48
+offset_bottom = -284.12
+text = "Initialize"
+
+[node name="FixRNs" type="Button" parent="DebugUI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.639
+anchor_top = 1.605
+anchor_right = 9.562
+anchor_bottom = 9.528
+offset_left = 215.44
+offset_top = -8.2
+offset_right = 40.52
+offset_bottom = -285.12
+text = "Fix RNs"
+
+[node name="DrawReach" type="Button" parent="DebugUI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.639
+anchor_top = 1.605
+anchor_right = 9.562
+anchor_bottom = 9.528
+offset_left = 45.44
+offset_top = 131.8
+offset_right = -114.48
+offset_bottom = -145.12
+text = "Draw Reach"
+
+[node name="RefreshStock" type="Button" parent="DebugUI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.639
+anchor_top = 1.605
+anchor_right = 9.562
+anchor_bottom = 9.528
+offset_left = 48.44
+offset_top = 251.8
+offset_right = -152.48
+offset_bottom = -25.12
+text = "Restock"
+
+[node name="OptionButton" type="OptionButton" parent="DebugUI" node_paths=PackedStringArray("u")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 2.692
+anchor_top = 1.331
+anchor_right = 10.708
+anchor_bottom = 9.166
+offset_left = 138.32
+offset_top = 264.76
+offset_right = -5.31995
+offset_bottom = -6.64001
+script = ExtResource("15_uutrq")
+u = NodePath("../../Gameboard/Unit")
+
+[connection signal="pressed" from="DebugUI/CheckDoors" to="DebugUI" method="_on_check_doors_pressed"]
+[connection signal="pressed" from="DebugUI/OpenDoors" to="DebugUI" method="_on_open_doors_pressed"]
+[connection signal="pressed" from="DebugUI/CheckChests" to="DebugUI" method="_on_check_chests_pressed"]
+[connection signal="pressed" from="DebugUI/OpenChests" to="DebugUI" method="_on_open_chests_pressed"]
+[connection signal="pressed" from="DebugUI/CheckInventory" to="DebugUI" method="_on_check_inventory_pressed"]
+[connection signal="pressed" from="DebugUI/SortInventory" to="DebugUI" method="_on_sort_inventory_pressed"]
+[connection signal="pressed" from="DebugUI/AddDogsToInv" to="DebugUI" method="_on_add_dogs_to_inv_pressed"]
+[connection signal="pressed" from="DebugUI/EquipItem0" to="DebugUI" method="_on_equip_item_0_pressed"]
+[connection signal="pressed" from="DebugUI/PrintStats" to="DebugUI" method="_on_print_stats_pressed"]
+[connection signal="pressed" from="DebugUI/LevelUp" to="DebugUI" method="_on_level_up_pressed"]
+[connection signal="pressed" from="DebugUI/Initialize" to="DebugUI" method="_on_initialize_pressed"]
+[connection signal="pressed" from="DebugUI/FixRNs" to="DebugUI" method="_on_fix_r_ns_pressed"]
+[connection signal="pressed" from="DebugUI/DrawReach" to="DebugUI" method="_on_draw_reach_pressed"]
+[connection signal="pressed" from="DebugUI/RefreshStock" to="DebugUI" method="_on_refresh_stock_pressed"]
+[connection signal="item_selected" from="DebugUI/OptionButton" to="DebugUI" method="_on_option_button_item_selected"]

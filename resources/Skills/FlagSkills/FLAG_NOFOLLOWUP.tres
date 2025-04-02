@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=2 format=3 uid="uid://dyvn86wceuhc8"]
+
+[ext_resource type="Script" uid="uid://jic3id7apdl5" path="res://scripts/skills/skill.gd" id="1_dwpj4"]
+
+[resource]
+script = ExtResource("1_dwpj4")
+name = "FLAG_NOFOLLOWUP"
+thumbPath = ""
+desc = "<Prevents Followup Attacks from Both Sides>"
+metadata/_custom_type_script = "uid://jic3id7apdl5"

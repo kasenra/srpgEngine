@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="SkillAttackBonus_Venge_Counter" load_steps=2 format=3 uid="uid://di0mn006uo2d8"]
+
+[ext_resource type="Script" uid="uid://bphuv4lnenwhh" path="res://scripts/skills/bonusSkills/venge_counter.gd" id="1_g7ud6"]
+
+[resource]
+script = ExtResource("1_g7ud6")
+counter_ratio = 0.5
+facing = 2
+baseChance = 25
+chanceMult = 0.5
+scalingStat = 9
+maximumChance = 100
+name = ""
+thumbPath = ""
+desc = ""
+metadata/_custom_type_script = "uid://bphuv4lnenwhh"

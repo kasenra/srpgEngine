@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="SkillActionBonus_Attack_Pierce" load_steps=2 format=3 uid="uid://cb2unnxhp1wsb"]
+
+[ext_resource type="Script" uid="uid://bd0hdicq0lnxu" path="res://scripts/skills/bonusSkills/pierce.gd" id="1_w2qv7"]
+
+[resource]
+script = ExtResource("1_w2qv7")
+facing = 0
+baseChance = 50
+chanceMult = 0.5
+scalingStat = 6
+maximumChance = 100
+name = "BONUS_ATTACK_PIERCE"
+thumbPath = ""
+desc = "<Chance to add half enemy's defense to damage.>"
+metadata/_custom_type_script = "uid://bd0hdicq0lnxu"

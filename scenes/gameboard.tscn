@@ -1,0 +1,39 @@
+[gd_scene load_steps=10 format=3 uid="uid://bflfw0ffetw38"]
+
+[ext_resource type="Script" uid="uid://bbqyycxebmpqq" path="res://scripts/gameboard.gd" id="1_fclx1"]
+[ext_resource type="PackedScene" uid="uid://dumhcl83y4smn" path="res://scenes/cursor.tscn" id="1_wx0bv"]
+[ext_resource type="Resource" uid="uid://d4gmbk4fs5qoh" path="res://resources/Grid.tres" id="2_jkv85"]
+[ext_resource type="PackedScene" uid="uid://7f0jjnkq8ubp" path="res://scenes/move_overlay.tscn" id="3_a1nq1"]
+[ext_resource type="PackedScene" uid="uid://cl3684wvmjge0" path="res://scenes/unit_path.tscn" id="4_jkv85"]
+[ext_resource type="Script" uid="uid://lix52m0uj57" path="res://scripts/UI/gameboard_audio_bus.gd" id="6_u8pjf"]
+[ext_resource type="AudioStream" uid="uid://rte7inro3n5o" path="res://sfx/select_click.mp3" id="7_25oqq"]
+[ext_resource type="AudioStream" uid="uid://dtnvfibju3738" path="res://sfx/deselect_click.mp3" id="8_jrlay"]
+
+[sub_resource type="AudioStreamPolyphonic" id="AudioStreamPolyphonic_25oqq"]
+polyphony = 8
+
+[node name="Gameboard" type="Node2D"]
+script = ExtResource("1_fclx1")
+grid = ExtResource("2_jkv85")
+
+[node name="Cursor" parent="." instance=ExtResource("1_wx0bv")]
+position = Vector2(32, 32)
+
+[node name="MoveOverlay" parent="." instance=ExtResource("3_a1nq1")]
+
+[node name="UnitPath" parent="." instance=ExtResource("4_jkv85")]
+grid = ExtResource("2_jkv85")
+
+[node name="GameboardAudioBus" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamPolyphonic_25oqq")
+volume_db = -2.0
+autoplay = true
+max_polyphony = 8
+script = ExtResource("6_u8pjf")
+soundfiles = Dictionary[int, AudioStream]({
+0: ExtResource("7_25oqq"),
+1: ExtResource("8_jrlay")
+})
+
+[connection signal="accept_pressed" from="Cursor" to="." method="cursorActivate"]
+[connection signal="moved" from="Cursor" to="." method="cursorMove"]

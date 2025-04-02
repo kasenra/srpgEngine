@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://7f0jjnkq8ubp"]
+
+[ext_resource type="Texture2D" uid="uid://bis76sx7xch53" path="res://texture/moveAuras.png" id="1_rwuy0"]
+[ext_resource type="Script" uid="uid://duwts8aa1ttlx" path="res://scripts/move_overlay.gd" id="2_rwuy0"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wnhf1"]
+texture = ExtResource("1_rwuy0")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_38hu3"]
+tile_size = Vector2i(64, 64)
+sources/0 = SubResource("TileSetAtlasSource_wnhf1")
+
+[node name="MoveOverlay" type="TileMapLayer"]
+modulate = Color(1, 1, 1, 0.2)
+tile_set = SubResource("TileSet_38hu3")
+script = ExtResource("2_rwuy0")

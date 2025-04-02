@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=2 format=3 uid="uid://cgglge0xv7r2s"]
+
+[ext_resource type="Script" uid="uid://jic3id7apdl5" path="res://scripts/skills/skill.gd" id="1_10kog"]
+
+[resource]
+script = ExtResource("1_10kog")
+name = "FLAG_FOLLOWUP_FIRST_BLOODY"
+thumbPath = ""
+desc = "<When this unit initiates combat>"
+metadata/_custom_type_script = "uid://jic3id7apdl5"

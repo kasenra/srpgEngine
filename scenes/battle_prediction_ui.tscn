@@ -1,0 +1,93 @@
+[gd_scene load_steps=2 format=3 uid="uid://c0e7gmwhemftd"]
+
+[ext_resource type="Script" uid="uid://djje7ettrvswr" path="res://scripts/UI/battle_prediction_ui.gd" id="1_sqksx"]
+
+[node name="BattlePredictionUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sqksx")
+
+[node name="Grid" type="GridContainer" parent="."]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 382.0
+offset_bottom = 114.0
+
+[node name="Names" type="HBoxContainer" parent="Grid"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="Att" type="Label" parent="Grid/Names"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "Circle Freak"
+horizontal_alignment = 1
+max_lines_visible = 1
+
+[node name="Def" type="Label" parent="Grid/Names"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "Dogmatic Whistle"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="Grid"]
+layout_mode = 2
+
+[node name="Damage" type="HBoxContainer" parent="Grid"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+alignment = 1
+
+[node name="Att" type="Label" parent="Grid/Damage"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "00 + 00"
+horizontal_alignment = 1
+
+[node name="Def" type="Label" parent="Grid/Damage"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "00 + 00"
+horizontal_alignment = 1
+
+[node name="Hit" type="HBoxContainer" parent="Grid"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+alignment = 1
+
+[node name="Att" type="Label" parent="Grid/Hit"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "00% 00%"
+horizontal_alignment = 1
+
+[node name="Def" type="Label" parent="Grid/Hit"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "00% 00%"
+horizontal_alignment = 1
+
+[node name="Crit" type="HBoxContainer" parent="Grid"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+alignment = 1
+
+[node name="Att" type="Label" parent="Grid/Crit"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "00% 00%"
+horizontal_alignment = 1
+
+[node name="Def" type="Label" parent="Grid/Crit"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "00% 00%"
+horizontal_alignment = 1

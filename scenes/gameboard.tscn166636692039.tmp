@@ -1,0 +1,21 @@
+[gd_scene load_steps=6 format=3 uid="uid://bflfw0ffetw38"]
+
+[ext_resource type="Script" uid="uid://bbqyycxebmpqq" path="res://scripts/gameboard.gd" id="1_fclx1"]
+[ext_resource type="PackedScene" uid="uid://dumhcl83y4smn" path="res://scenes/cursor.tscn" id="1_wx0bv"]
+[ext_resource type="Resource" uid="uid://d4gmbk4fs5qoh" path="res://resources/Grid.tres" id="2_jkv85"]
+[ext_resource type="PackedScene" uid="uid://7f0jjnkq8ubp" path="res://scenes/move_overlay.tscn" id="3_a1nq1"]
+[ext_resource type="PackedScene" uid="uid://cl3684wvmjge0" path="res://scenes/unit_path.tscn" id="4_jkv85"]
+
+[node name="Gameboard" type="Node2D"]
+script = ExtResource("1_fclx1")
+grid = ExtResource("2_jkv85")
+
+[node name="Cursor" parent="." instance=ExtResource("1_wx0bv")]
+
+[node name="MoveOverlay" parent="." instance=ExtResource("3_a1nq1")]
+
+[node name="UnitPath" parent="." instance=ExtResource("4_jkv85")]
+grid = ExtResource("2_jkv85")
+
+[connection signal="accept_pressed" from="Cursor" to="." method="cursorActivate"]
+[connection signal="moved" from="Cursor" to="." method="cursorMove"]

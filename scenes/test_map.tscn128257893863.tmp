@@ -1,0 +1,101 @@
+[gd_scene load_steps=8 format=4 uid="uid://b0a01u4g00t2s"]
+
+[ext_resource type="Texture2D" uid="uid://domxfky40v82w" path="res://texture/noisytiles.png" id="1_6ao0j"]
+[ext_resource type="PackedScene" uid="uid://bl5wv40mpvreh" path="res://scenes/unit.tscn" id="2_brx37"]
+[ext_resource type="PackedScene" uid="uid://rk245yl41f84" path="res://scenes/chapter_test.tscn" id="2_p21b5"]
+[ext_resource type="PackedScene" uid="uid://bflfw0ffetw38" path="res://scenes/gameboard.tscn" id="3_57l66"]
+[ext_resource type="Script" uid="uid://bbj3a7xygmpcd" path="res://scripts/debug_ui.gd" id="5_bdpbv"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dduha"]
+texture = ExtResource("1_6ao0j")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_ly8mw"]
+tile_size = Vector2i(64, 64)
+sources/1 = SubResource("TileSetAtlasSource_dduha")
+
+[node name="TestMap" type="Node2D"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+visible = false
+position = Vector2(1, 2)
+tile_map_data = PackedByteArray("AAAAAAAAAQAAAAAAAAABAAAAAQAAAAAAAAAAAAEAAQAAAAAAAAABAAEAAQAAAAAAAAACAAAAAQAAAAAAAAACAAEAAQAAAAAAAAADAAAAAQAAAAAAAAAEAAAAAQAAAAAAAAADAAEAAQAAAAAAAAAEAAEAAQAAAAAAAAAAAAIAAQAAAAAAAAAAAAMAAQAAAAAAAAABAAIAAQAAAAAAAAABAAMAAQAAAAAAAAAAAAQAAQAAAAAAAAAAAAUAAQAAAAAAAAABAAQAAQAAAAAAAAABAAUAAQAAAAAAAAACAAIAAQAAAAAAAAACAAMAAQAAAAAAAAADAAIAAQAAAAAAAAADAAMAAQAAAAAAAAACAAQAAQAAAAAAAAACAAUAAQAAAAAAAAADAAQAAQAAAAAAAAADAAUAAQAAAAAAAAAEAAIAAQAAAAAAAAAEAAMAAQAAAAAAAAAFAAIAAQAAAAAAAAAFAAMAAQAAAAAAAAAEAAQAAQAAAAAAAAAEAAUAAQAAAAAAAAAFAAQAAQAAAAAAAAAFAAUAAQAAAAAAAAAGAAIAAQAAAAAAAAAGAAMAAQAAAAAAAAAGAAQAAQAAAAAAAAAGAAUAAQAAAAAAAAAFAAAAAQAAAAAAAAAFAAEAAQAAAAAAAAAGAAAAAQAAAAAAAAAGAAEAAQAAAAAAAAAHAAAAAQAAAAAAAAAHAAEAAQAAAAAAAAAHAAIAAQAAAAAAAAAHAAMAAQAAAAAAAAAHAAQAAQAAAAAAAAAHAAUAAQAAAAAAAAAIAAAAAQAAAAAAAAAIAAEAAQAAAAAAAAAIAAIAAQAAAAAAAAAIAAMAAQAAAAAAAAAIAAQAAQAAAAAAAAAIAAUAAQAAAAAAAAAAAAYAAQAAAAAAAAAAAAcAAQAAAAAAAAABAAYAAQAAAAAAAAABAAcAAQAAAAAAAAACAAYAAQAAAAAAAAACAAcAAQAAAAAAAAADAAYAAQAAAAAAAAADAAcAAQAAAAAAAAAEAAYAAQAAAAAAAAAEAAcAAQAAAAAAAAAFAAYAAQAAAAAAAAAFAAcAAQAAAAAAAAAGAAYAAQAAAAAAAAAGAAcAAQAAAAAAAAAHAAYAAQAAAAAAAAAHAAcAAQAAAAAAAAAJAAAAAQAAAAAAAAAJAAEAAQAAAAAAAAAJAAIAAQAAAAAAAAAJAAMAAQAAAAAAAAAJAAQAAQAAAAAAAAAJAAUAAQAAAAAAAAAIAAYAAQAAAAAAAAAIAAcAAQAAAAAAAAAJAAYAAQAAAAAAAAAJAAcAAQAAAAAAAAA=")
+tile_set = SubResource("TileSet_ly8mw")
+
+[node name="BattleMap" parent="." instance=ExtResource("2_p21b5")]
+
+[node name="Gameboard" parent="." node_paths=PackedStringArray("map") instance=ExtResource("3_57l66")]
+map = NodePath("../BattleMap")
+
+[node name="Unit" parent="Gameboard" instance=ExtResource("2_brx37")]
+position = Vector2(32, 96)
+moveType = 0
+allegiance = 1
+cell = Vector2(0, 1)
+
+[node name="DebugUI" type="Control" parent="." node_paths=PackedStringArray("gb", "u")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("5_bdpbv")
+gb = NodePath("../Gameboard")
+u = NodePath("../Gameboard/Unit")
+
+[node name="CheckDoors" type="Button" parent="DebugUI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.639
+anchor_top = 1.605
+anchor_right = 9.562
+anchor_bottom = 9.528
+offset_left = 13.44
+offset_top = 10.8
+offset_right = -146.48
+offset_bottom = -266.12
+text = "Check for Doors"
+
+[node name="OpenDoors" type="Button" parent="DebugUI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.673
+anchor_top = 1.69
+anchor_right = 9.562
+anchor_bottom = 9.562
+offset_left = 11.08
+offset_top = 65.4
+offset_right = -148.48
+offset_bottom = -213.48
+text = "Open Doors"
+
+[node name="CheckChests" type="Button" parent="DebugUI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.639
+anchor_top = 1.605
+anchor_right = 9.562
+anchor_bottom = 9.528
+offset_left = 13.44
+offset_top = 189.8
+offset_right = -146.48
+offset_bottom = -87.12
+text = "Check for Chests"
+
+[node name="OpenChests" type="Button" parent="DebugUI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.673
+anchor_top = 1.69
+anchor_right = 9.562
+anchor_bottom = 9.562
+offset_left = 11.08
+offset_top = 248.4
+offset_right = -148.48
+offset_bottom = -30.48
+text = "Open Chests"
+
+[connection signal="pressed" from="DebugUI/CheckDoors" to="DebugUI" method="_on_check_doors_pressed"]
+[connection signal="pressed" from="DebugUI/OpenDoors" to="DebugUI" method="_on_open_doors_pressed"]
+[connection signal="pressed" from="DebugUI/CheckChests" to="DebugUI" method="_on_check_chests_pressed"]
+[connection signal="pressed" from="DebugUI/OpenChests" to="DebugUI" method="_on_open_chests_pressed"]

@@ -1,0 +1,112 @@
+[gd_scene load_steps=11 format=3 uid="uid://bl5wv40mpvreh"]
+
+[ext_resource type="Script" uid="uid://3kg6r38cckvj" path="res://scripts/unit.gd" id="1_g4kry"]
+[ext_resource type="Resource" uid="uid://d4gmbk4fs5qoh" path="res://resources/Grid.tres" id="2_1jvru"]
+[ext_resource type="Texture2D" uid="uid://bll8fivdh7yjn" path="res://texture/dummyUnit.png" id="3_1jvru"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gic7v"]
+bg_color = Color(0.314316, 0.314316, 0.314316, 0.2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1jvru"]
+bg_color = Color(0.667, 0.966, 0.675, 0.5)
+
+[sub_resource type="Animation" id="Animation_d80uf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D/Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_413fo"]
+resource_name = "selected"
+length = 1.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D/Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1.5, 1.5, 1.5, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_1jvru"]
+resource_name = "die"
+length = 0.5
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D/Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_gic7v"]
+resource_name = "skill_activation"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D/Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.266667, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.982311, 0, 0.352731, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kovia"]
+_data = {
+&"RESET": SubResource("Animation_d80uf"),
+&"die": SubResource("Animation_1jvru"),
+&"selected": SubResource("Animation_413fo"),
+&"skill_activation": SubResource("Animation_gic7v")
+}
+
+[node name="Unit" type="Path2D"]
+position = Vector2(32, 32)
+script = ExtResource("1_g4kry")
+grid = ExtResource("2_1jvru")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+rotates = false
+loop = false
+
+[node name="Sprite2D" type="Sprite2D" parent="PathFollow2D"]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_1jvru")
+
+[node name="HPBar" type="ProgressBar" parent="PathFollow2D/Sprite2D"]
+offset_left = -80.0
+offset_top = 92.0
+offset_right = 80.0
+offset_bottom = 108.0
+theme_override_styles/background = SubResource("StyleBoxFlat_gic7v")
+theme_override_styles/fill = SubResource("StyleBoxFlat_1jvru")
+step = 1.0
+rounded = true
+show_percentage = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_kovia")
+}

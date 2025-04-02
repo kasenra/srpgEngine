@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://bb3ggqgow7lq1"
+
+[deps]
+
+files=["res://localization/localizationMaster.notes.translation", "res://localization/localizationMaster.en.translation", "res://localization/localizationMaster.es.translation", "res://localization/localizationMaster.zh.translation", "res://localization/localizationMaster.jp.translation", "res://localization/localizationMaster.kr.translation", "res://localization/localizationMaster.de.translation", "res://localization/localizationMaster.pt.translation", "res://localization/localizationMaster.it.translation", "res://localization/localizationMaster.fr.translation", "res://localization/localizationMaster.ru.translation"]
+
+source_file="res://localization/localizationMaster.csv"
+dest_files=["res://localization/localizationMaster.notes.translation", "res://localization/localizationMaster.en.translation", "res://localization/localizationMaster.es.translation", "res://localization/localizationMaster.zh.translation", "res://localization/localizationMaster.jp.translation", "res://localization/localizationMaster.kr.translation", "res://localization/localizationMaster.de.translation", "res://localization/localizationMaster.pt.translation", "res://localization/localizationMaster.it.translation", "res://localization/localizationMaster.fr.translation", "res://localization/localizationMaster.ru.translation"]
+
+[params]
+
+compress=true
+delimiter=0

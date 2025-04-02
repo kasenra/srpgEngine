@@ -1,0 +1,1056 @@
+[gd_scene load_steps=47 format=4 uid="uid://b0a01u4g00t2s"]
+
+[ext_resource type="Texture2D" uid="uid://domxfky40v82w" path="res://texture/noisytiles.png" id="1_6ao0j"]
+[ext_resource type="PackedScene" uid="uid://bl5wv40mpvreh" path="res://scenes/unit.tscn" id="2_brx37"]
+[ext_resource type="PackedScene" uid="uid://rk245yl41f84" path="res://scenes/chapter_test.tscn" id="2_p21b5"]
+[ext_resource type="PackedScene" uid="uid://bflfw0ffetw38" path="res://scenes/gameboard.tscn" id="3_57l66"]
+[ext_resource type="Script" uid="uid://bpgytvtjqqcvv" path="res://scripts/classes/unitClass.gd" id="5_36mki"]
+[ext_resource type="Script" uid="uid://bbj3a7xygmpcd" path="res://scripts/debug/debug_ui.gd" id="5_bdpbv"]
+[ext_resource type="Texture2D" uid="uid://6i450bpmoji7" path="res://texture/burninggearthing.png" id="5_kddbv"]
+[ext_resource type="Script" uid="uid://dipeqoew01vju" path="res://scripts/characters/character.gd" id="5_u56q5"]
+[ext_resource type="Script" uid="uid://c6clvy1t8udax" path="res://scripts/unit_factory/UnitStats.gd" id="6_4mr4y"]
+[ext_resource type="Script" uid="uid://cnnegi00nwp05" path="res://scripts/items/weapon.gd" id="6_6751p"]
+[ext_resource type="Script" uid="uid://jic3id7apdl5" path="res://scripts/skills/skill.gd" id="6_o5gif"]
+[ext_resource type="Texture2D" uid="uid://fx3e2pl2udvu" path="res://texture/paddlelookingthing.png" id="6_pw728"]
+[ext_resource type="Resource" uid="uid://cig4xevhlrie8" path="res://resources/Skills/AdjustorSkills/ADJUSTOR_BLOODYCRIT_BASIC.tres" id="8_lt4wf"]
+[ext_resource type="Script" uid="uid://dfgihdxam7ebq" path="res://scripts/items/item.gd" id="8_o5gif"]
+[ext_resource type="Script" uid="uid://cp3rsgeodfefh" path="res://scripts/inventories/inventory.gd" id="9_34ald"]
+[ext_resource type="Resource" uid="uid://beeg6psljlxdd" path="res://resources/Skills/PostEffectSkills/POST_BLUENOW.tres" id="9_uhu2c"]
+[ext_resource type="Resource" uid="uid://cb2unnxhp1wsb" path="res://resources/Skills/BonusSkills/Attack/BONUS_ATTACK_PIERCE.tres" id="10_5nfov"]
+[ext_resource type="Texture2D" uid="uid://edq42lxikg61" path="res://texture/locklookingthing.png" id="12_34ald"]
+[ext_resource type="Texture2D" uid="uid://bsmnehy7eykl3" path="res://texture/mooncarriers.png" id="15_lcvph"]
+[ext_resource type="Script" uid="uid://bwq2bpxheccxm" path="res://scenes/debug_weapon_select.gd" id="15_uutrq"]
+[ext_resource type="Texture2D" uid="uid://dycsyw6ly703f" path="res://texture/meatThing.png" id="16_eukwx"]
+[ext_resource type="Resource" uid="uid://di0mn006uo2d8" path="res://resources/Skills/BonusSkills/Venge/BONUS_VENGE_COUNTER.tres" id="18_diphd"]
+[ext_resource type="PackedScene" uid="uid://c0e7gmwhemftd" path="res://scenes/battle_prediction_ui.tscn" id="19_eukwx"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dduha"]
+texture = ExtResource("1_6ao0j")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_ly8mw"]
+tile_size = Vector2i(64, 64)
+sources/1 = SubResource("TileSetAtlasSource_dduha")
+
+[sub_resource type="Resource" id="Resource_34ald"]
+script = ExtResource("5_36mki")
+name = "General McFucker"
+base_mhp = 19
+base_str = 3
+base_mag = 0
+base_skl = 3
+base_spd = 2
+base_lck = 3
+base_def = 6
+base_res = 1
+base_mov = 5
+growth_mhp = 20
+growth_str = 20
+growth_mag = 0
+growth_skl = 15
+growth_spd = 5
+growth_lck = 10
+growth_def = 20
+growth_res = 0
+max_mhp = 45
+max_str = 24
+max_mag = 15
+max_skl = 22
+max_spd = 17
+max_lck = 22
+max_def = 26
+max_res = 18
+bonus_dmg = 0
+bonus_hit = 0
+bonus_avo = 0
+bonus_crit = 0
+bonus_ddg = 0
+mType = 2
+proficiencies = Dictionary[int, int]({
+1: 5
+})
+tier = 0
+promotes = Array[ExtResource("5_36mki")]([])
+skills = Dictionary[int, ExtResource("6_o5gif")]({})
+innateSkills = Array[ExtResource("6_o5gif")]([])
+metadata/_custom_type_script = "uid://bpgytvtjqqcvv"
+
+[sub_resource type="Resource" id="Resource_36mki"]
+script = ExtResource("5_u56q5")
+name = "Circulus Freaky"
+displayName = ""
+base_mhp = 3
+base_str = 4
+base_mag = 2
+base_spd = 4
+base_skl = 4
+base_lck = 5
+base_def = 6
+base_res = 3
+growth_mhp = 55
+growth_str = 50
+growth_mag = 0
+growth_skl = 35
+growth_spd = 20
+growth_lck = 25
+growth_def = 60
+growth_res = 20
+max_mhp = 40
+max_str = 20
+max_mag = 10
+max_skl = 20
+max_spd = 15
+max_lck = 15
+max_def = 30
+max_res = 10
+availableSupports = Dictionary[ExtResource("5_u56q5"), int]({})
+supportRates = Dictionary[ExtResource("5_u56q5"), float]({})
+supportBonuses = Dictionary[int, Array]({})
+metadata/_custom_type_script = "uid://dipeqoew01vju"
+
+[sub_resource type="Resource" id="Resource_a5r8l"]
+script = ExtResource("6_6751p")
+equipped = false
+might = 7
+prot = 0
+avoid = 0
+hit = 80
+crit = 0
+dodge = 0
+damageType = 0
+reachMin = 1
+reachMax = 1
+asdPenalty = 0
+canDouble = true
+profReq = 1
+weaponType = 1
+critMult = 3.0
+effectiveMult = Dictionary[int, float]({})
+trait_skills = Array[ExtResource("6_o5gif")]([])
+trait_aggressiveDouble = false
+trait_duelist = false
+name = "Iron Lance"
+thumbPath = ""
+discardable = true
+tradeable = true
+droppable = false
+metadata/_custom_type_script = "uid://cnnegi00nwp05"
+
+[sub_resource type="Resource" id="Resource_lcvph"]
+script = ExtResource("6_6751p")
+equipped = false
+might = 7
+prot = 0
+avoid = 0
+hit = 65
+crit = 0
+dodge = 0
+damageType = 0
+reachMin = 1
+reachMax = 1
+asdPenalty = 0
+canDouble = true
+profReq = 4
+weaponType = 1
+critMult = 3.0
+effectiveMult = Dictionary[int, float]({})
+trait_skills = Array[ExtResource("6_o5gif")]([])
+trait_aggressiveDouble = true
+trait_duelist = false
+name = "Geisteel Lance"
+thumbPath = ""
+discardable = true
+tradeable = true
+droppable = false
+metadata/_custom_type_script = "uid://cnnegi00nwp05"
+
+[sub_resource type="Resource" id="Resource_i5tuv"]
+script = ExtResource("6_6751p")
+equipped = false
+might = 6
+prot = 0
+avoid = 0
+hit = 75
+crit = 0
+dodge = 0
+damageType = 0
+reachMin = 1
+reachMax = 2
+asdPenalty = 0
+canDouble = false
+profReq = 3
+weaponType = 1
+critMult = 3.0
+effectiveMult = Dictionary[int, float]({})
+trait_skills = Array[ExtResource("6_o5gif")]([])
+trait_aggressiveDouble = false
+trait_duelist = false
+name = "Javelin"
+thumbPath = ""
+discardable = true
+tradeable = true
+droppable = false
+metadata/_custom_type_script = "uid://cnnegi00nwp05"
+
+[sub_resource type="Resource" id="Resource_uhu2c"]
+script = ExtResource("6_6751p")
+equipped = false
+might = 7
+prot = 0
+avoid = -10
+hit = 75
+crit = 25
+dodge = 0
+damageType = 0
+reachMin = 1
+reachMax = 1
+asdPenalty = 0
+canDouble = true
+profReq = 0
+weaponType = 1
+critMult = 4.0
+effectiveMult = Dictionary[int, float]({})
+trait_skills = Array[ExtResource("6_o5gif")]([])
+trait_aggressiveDouble = false
+trait_duelist = false
+name = "Killer Lance"
+thumbPath = ""
+discardable = false
+tradeable = false
+droppable = false
+metadata/_custom_type_script = "uid://cnnegi00nwp05"
+
+[sub_resource type="Resource" id="Resource_eukwx"]
+script = ExtResource("9_34ald")
+inv = Array[ExtResource("8_o5gif")]([SubResource("Resource_a5r8l"), SubResource("Resource_lcvph"), SubResource("Resource_i5tuv"), SubResource("Resource_uhu2c")])
+metadata/_custom_type_script = "uid://cp3rsgeodfefh"
+
+[sub_resource type="Resource" id="Resource_6751p"]
+script = ExtResource("6_4mr4y")
+uName = "Circle Freak"
+identity = SubResource("Resource_36mki")
+level = 0
+charClass = SubResource("Resource_34ald")
+hp = 0
+mhp = 0
+strength = 0
+magic = 0
+speed = 0
+skill = 0
+luck = 0
+defense = 0
+resistance = 0
+move = 0
+moveType = 0
+skills = Array[ExtResource("6_o5gif")]([ExtResource("8_lt4wf"), ExtResource("9_uhu2c"), ExtResource("10_5nfov")])
+equippedSkills = Array[ExtResource("6_o5gif")]([ExtResource("8_lt4wf"), ExtResource("9_uhu2c"), ExtResource("10_5nfov")])
+lockedSkills = Array[ExtResource("6_o5gif")]([])
+innateProficiencies = Dictionary[int, int]({})
+inv = SubResource("Resource_eukwx")
+allegiance = 0
+dead = false
+supportPoints = Dictionary[String, int]({})
+clearedRanks = Dictionary[String, int]({})
+growthRns = Dictionary[int, Array]({})
+metadata/_custom_type_script = "uid://c6clvy1t8udax"
+
+[sub_resource type="Resource" id="Resource_o5gif"]
+script = ExtResource("6_4mr4y")
+uName = ""
+level = 0
+hp = 0
+mhp = 0
+strength = 0
+magic = 0
+speed = 0
+skill = 0
+luck = 0
+defense = 0
+resistance = 0
+move = 0
+moveType = 0
+skills = Array[ExtResource("6_o5gif")]([])
+equippedSkills = Array[ExtResource("6_o5gif")]([])
+lockedSkills = Array[ExtResource("6_o5gif")]([])
+innateProficiencies = Dictionary[int, int]({})
+allegiance = 0
+dead = false
+supportPoints = Dictionary[String, int]({})
+clearedRanks = Dictionary[String, int]({})
+growthRns = Dictionary[int, Array]({})
+metadata/_custom_type_script = "uid://c6clvy1t8udax"
+
+[sub_resource type="Resource" id="Resource_lt4wf"]
+script = ExtResource("6_4mr4y")
+uName = ""
+level = 0
+hp = 0
+mhp = 0
+strength = 0
+magic = 0
+speed = 0
+skill = 0
+luck = 0
+defense = 0
+resistance = 0
+move = 0
+moveType = 0
+skills = Array[ExtResource("6_o5gif")]([])
+equippedSkills = Array[ExtResource("6_o5gif")]([])
+lockedSkills = Array[ExtResource("6_o5gif")]([])
+innateProficiencies = Dictionary[int, int]({})
+allegiance = 1
+dead = false
+supportPoints = Dictionary[String, int]({})
+clearedRanks = Dictionary[String, int]({})
+growthRns = Dictionary[int, Array]({})
+metadata/_custom_type_script = "uid://c6clvy1t8udax"
+
+[sub_resource type="Resource" id="Resource_uv76m"]
+script = ExtResource("5_36mki")
+name = "Big Scary Axe Freak"
+base_mhp = 8
+base_str = 4
+base_mag = 0
+base_skl = 2
+base_spd = 2
+base_lck = 1
+base_def = 3
+base_res = 2
+base_mov = 5
+growth_mhp = 15
+growth_str = 20
+growth_mag = 0
+growth_skl = 10
+growth_spd = 10
+growth_lck = 15
+growth_def = 20
+growth_res = 15
+max_mhp = 50
+max_str = 25
+max_mag = 10
+max_skl = 20
+max_spd = 20
+max_lck = 15
+max_def = 25
+max_res = 15
+bonus_dmg = 0
+bonus_hit = 0
+bonus_avo = 0
+bonus_crit = 0
+bonus_ddg = -5
+mType = 0
+proficiencies = Dictionary[int, int]({
+2: 2
+})
+tier = 0
+promotes = Array[ExtResource("5_36mki")]([])
+skills = Dictionary[int, ExtResource("6_o5gif")]({})
+innateSkills = Array[ExtResource("6_o5gif")]([])
+metadata/_custom_type_script = "uid://bpgytvtjqqcvv"
+
+[sub_resource type="Resource" id="Resource_udium"]
+script = ExtResource("5_u56q5")
+name = "Moon Supports"
+displayName = ""
+base_mhp = 8
+base_str = 11
+base_mag = 1
+base_spd = 3
+base_skl = 4
+base_lck = 2
+base_def = 4
+base_res = 4
+growth_mhp = 3
+growth_str = 60
+growth_mag = 0
+growth_skl = 30
+growth_spd = 30
+growth_lck = 20
+growth_def = 50
+growth_res = 30
+max_mhp = 10
+max_str = 5
+max_mag = -3
+max_skl = 0
+max_spd = 0
+max_lck = 0
+max_def = 0
+max_res = -3
+availableSupports = Dictionary[ExtResource("5_u56q5"), int]({})
+supportRates = Dictionary[ExtResource("5_u56q5"), float]({})
+supportBonuses = Dictionary[int, Array]({})
+metadata/_custom_type_script = "uid://dipeqoew01vju"
+
+[sub_resource type="Resource" id="Resource_q4233"]
+script = ExtResource("6_6751p")
+equipped = false
+might = 8
+prot = 0
+avoid = 0
+hit = 60
+crit = 0
+dodge = 0
+damageType = 0
+reachMin = 1
+reachMax = 1
+asdPenalty = 2
+canDouble = true
+profReq = 1
+weaponType = 2
+critMult = 3.0
+effectiveMult = Dictionary[int, float]({})
+trait_skills = Array[ExtResource("6_o5gif")]([])
+trait_aggressiveDouble = false
+trait_duelist = false
+name = "SCARY AXE"
+thumbPath = ""
+discardable = false
+tradeable = false
+droppable = false
+metadata/_custom_type_script = "uid://cnnegi00nwp05"
+
+[sub_resource type="Resource" id="Resource_7qive"]
+script = ExtResource("9_34ald")
+inv = Array[ExtResource("8_o5gif")]([SubResource("Resource_q4233")])
+metadata/_custom_type_script = "uid://cp3rsgeodfefh"
+
+[sub_resource type="Resource" id="Resource_vo55k"]
+script = ExtResource("6_4mr4y")
+uName = "Moon Supports"
+identity = SubResource("Resource_udium")
+level = 0
+charClass = SubResource("Resource_uv76m")
+hp = 0
+mhp = 0
+strength = 0
+magic = 0
+speed = 0
+skill = 0
+luck = 0
+defense = 0
+resistance = 0
+move = 0
+moveType = 0
+skills = Array[ExtResource("6_o5gif")]([ExtResource("18_diphd")])
+equippedSkills = Array[ExtResource("6_o5gif")]([ExtResource("18_diphd")])
+lockedSkills = Array[ExtResource("6_o5gif")]([])
+innateProficiencies = Dictionary[int, int]({})
+inv = SubResource("Resource_7qive")
+allegiance = 1
+dead = false
+supportPoints = Dictionary[String, int]({})
+clearedRanks = Dictionary[String, int]({})
+growthRns = Dictionary[int, Array]({})
+metadata/_custom_type_script = "uid://c6clvy1t8udax"
+
+[sub_resource type="Resource" id="Resource_5nfov"]
+script = ExtResource("5_36mki")
+name = "Sword Horse Guy"
+base_mhp = 8
+base_str = 1
+base_mag = 3
+base_skl = 4
+base_spd = 5
+base_lck = 2
+base_def = 3
+base_res = 4
+base_mov = 20
+growth_mhp = 5
+growth_str = 10
+growth_mag = 20
+growth_skl = 10
+growth_spd = 15
+growth_lck = 5
+growth_def = 0
+growth_res = 10
+max_mhp = 40
+max_str = 20
+max_mag = 25
+max_skl = 45
+max_spd = 50
+max_lck = 20
+max_def = 15
+max_res = 20
+bonus_dmg = 0
+bonus_hit = 0
+bonus_avo = 0
+bonus_crit = 0
+bonus_ddg = 0
+mType = 0
+proficiencies = Dictionary[int, int]({
+0: 2
+})
+tier = 0
+promotes = Array[ExtResource("5_36mki")]([])
+skills = Dictionary[int, ExtResource("6_o5gif")]({})
+innateSkills = Array[ExtResource("6_o5gif")]([])
+metadata/_custom_type_script = "uid://bpgytvtjqqcvv"
+
+[sub_resource type="Resource" id="Resource_diphd"]
+script = ExtResource("5_u56q5")
+name = "Meatball Man"
+displayName = ""
+base_mhp = 5
+base_str = 2
+base_mag = 3
+base_spd = 4
+base_skl = 4
+base_lck = 3
+base_def = 2
+base_res = 2
+growth_mhp = 50
+growth_str = 40
+growth_mag = 40
+growth_skl = 50
+growth_spd = 60
+growth_lck = 35
+growth_def = 30
+growth_res = 40
+max_mhp = 5
+max_str = -2
+max_mag = 5
+max_skl = 3
+max_spd = 3
+max_lck = 2
+max_def = -2
+max_res = 4
+availableSupports = Dictionary[ExtResource("5_u56q5"), int]({})
+supportRates = Dictionary[ExtResource("5_u56q5"), float]({})
+supportBonuses = Dictionary[int, Array]({})
+metadata/_custom_type_script = "uid://dipeqoew01vju"
+
+[sub_resource type="Resource" id="Resource_hmnbr"]
+script = ExtResource("6_6751p")
+equipped = false
+might = 7
+prot = 0
+avoid = -10
+hit = 65
+crit = 0
+dodge = 0
+damageType = 1
+reachMin = 1
+reachMax = 4
+asdPenalty = 0
+canDouble = false
+profReq = 2
+weaponType = 0
+critMult = 3.0
+effectiveMult = Dictionary[int, float]({})
+trait_skills = Array[ExtResource("6_o5gif")]([])
+trait_aggressiveDouble = false
+trait_duelist = false
+name = "Magical Sword"
+thumbPath = ""
+discardable = true
+tradeable = true
+droppable = false
+metadata/_custom_type_script = "uid://cnnegi00nwp05"
+
+[sub_resource type="Resource" id="Resource_pmkf2"]
+script = ExtResource("9_34ald")
+inv = Array[ExtResource("8_o5gif")]([SubResource("Resource_hmnbr")])
+metadata/_custom_type_script = "uid://cp3rsgeodfefh"
+
+[sub_resource type="Resource" id="Resource_pjm8e"]
+script = ExtResource("6_4mr4y")
+uName = "Meatball Man"
+identity = SubResource("Resource_diphd")
+level = 0
+charClass = SubResource("Resource_5nfov")
+hp = 0
+mhp = 0
+strength = 0
+magic = 0
+speed = 0
+skill = 0
+luck = 0
+defense = 0
+resistance = 0
+move = 0
+moveType = 0
+skills = Array[ExtResource("6_o5gif")]([])
+equippedSkills = Array[ExtResource("6_o5gif")]([])
+lockedSkills = Array[ExtResource("6_o5gif")]([])
+innateProficiencies = Dictionary[int, int]({})
+inv = SubResource("Resource_pmkf2")
+allegiance = 0
+dead = false
+supportPoints = Dictionary[String, int]({})
+clearedRanks = Dictionary[String, int]({})
+growthRns = Dictionary[int, Array]({})
+metadata/_custom_type_script = "uid://c6clvy1t8udax"
+
+[sub_resource type="Resource" id="Resource_uutrq"]
+script = ExtResource("6_6751p")
+equipped = false
+might = 10
+prot = 0
+avoid = 10
+hit = 0
+crit = 10
+dodge = 0
+damageType = 1
+reachMin = 0
+reachMax = 0
+asdPenalty = 0
+canDouble = true
+profReq = 2
+weaponType = 1
+critMult = 3.0
+effectiveMult = Dictionary[int, float]({})
+trait_skills = Array[ExtResource("6_o5gif")]([])
+trait_aggressiveDouble = false
+trait_duelist = false
+name = "Hot Dog"
+thumbPath = ""
+discardable = false
+tradeable = false
+droppable = false
+metadata/_custom_type_script = "uid://cnnegi00nwp05"
+
+[node name="TestMap" type="Node2D"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+visible = false
+position = Vector2(1, 2)
+tile_map_data = PackedByteArray("AAAAAAAAAQAAAAAAAAABAAAAAQAAAAAAAAAAAAEAAQAAAAAAAAABAAEAAQAAAAAAAAACAAAAAQAAAAAAAAACAAEAAQAAAAAAAAADAAAAAQAAAAAAAAAEAAAAAQAAAAAAAAADAAEAAQAAAAAAAAAEAAEAAQAAAAAAAAAAAAIAAQAAAAAAAAAAAAMAAQAAAAAAAAABAAIAAQAAAAAAAAABAAMAAQAAAAAAAAAAAAQAAQAAAAAAAAAAAAUAAQAAAAAAAAABAAQAAQAAAAAAAAABAAUAAQAAAAAAAAACAAIAAQAAAAAAAAACAAMAAQAAAAAAAAADAAIAAQAAAAAAAAADAAMAAQAAAAAAAAACAAQAAQAAAAAAAAACAAUAAQAAAAAAAAADAAQAAQAAAAAAAAADAAUAAQAAAAAAAAAEAAIAAQAAAAAAAAAEAAMAAQAAAAAAAAAFAAIAAQAAAAAAAAAFAAMAAQAAAAAAAAAEAAQAAQAAAAAAAAAEAAUAAQAAAAAAAAAFAAQAAQAAAAAAAAAFAAUAAQAAAAAAAAAGAAIAAQAAAAAAAAAGAAMAAQAAAAAAAAAGAAQAAQAAAAAAAAAGAAUAAQAAAAAAAAAFAAAAAQAAAAAAAAAFAAEAAQAAAAAAAAAGAAAAAQAAAAAAAAAGAAEAAQAAAAAAAAAHAAAAAQAAAAAAAAAHAAEAAQAAAAAAAAAHAAIAAQAAAAAAAAAHAAMAAQAAAAAAAAAHAAQAAQAAAAAAAAAHAAUAAQAAAAAAAAAIAAAAAQAAAAAAAAAIAAEAAQAAAAAAAAAIAAIAAQAAAAAAAAAIAAMAAQAAAAAAAAAIAAQAAQAAAAAAAAAIAAUAAQAAAAAAAAAAAAYAAQAAAAAAAAAAAAcAAQAAAAAAAAABAAYAAQAAAAAAAAABAAcAAQAAAAAAAAACAAYAAQAAAAAAAAACAAcAAQAAAAAAAAADAAYAAQAAAAAAAAADAAcAAQAAAAAAAAAEAAYAAQAAAAAAAAAEAAcAAQAAAAAAAAAFAAYAAQAAAAAAAAAFAAcAAQAAAAAAAAAGAAYAAQAAAAAAAAAGAAcAAQAAAAAAAAAHAAYAAQAAAAAAAAAHAAcAAQAAAAAAAAAJAAAAAQAAAAAAAAAJAAEAAQAAAAAAAAAJAAIAAQAAAAAAAAAJAAMAAQAAAAAAAAAJAAQAAQAAAAAAAAAJAAUAAQAAAAAAAAAIAAYAAQAAAAAAAAAIAAcAAQAAAAAAAAAJAAYAAQAAAAAAAAAJAAcAAQAAAAAAAAA=")
+tile_set = SubResource("TileSet_ly8mw")
+
+[node name="BattleMap" parent="." instance=ExtResource("2_p21b5")]
+
+[node name="Gameboard" parent="." node_paths=PackedStringArray("map") instance=ExtResource("3_57l66")]
+map = NodePath("../BattleMap")
+
+[node name="Unit" parent="Gameboard" groups=["unit"] instance=ExtResource("2_brx37")]
+position = Vector2(160, 32)
+stat = SubResource("Resource_6751p")
+tex = ExtResource("12_34ald")
+cell = Vector2(2, 0)
+
+[node name="Unit2" parent="Gameboard" instance=ExtResource("2_brx37")]
+position = Vector2(800, 288)
+stat = SubResource("Resource_o5gif")
+tex = ExtResource("5_kddbv")
+cell = Vector2(12, 4)
+
+[node name="Unit3" parent="Gameboard" instance=ExtResource("2_brx37")]
+position = Vector2(352, 416)
+stat = SubResource("Resource_lt4wf")
+tex = ExtResource("6_pw728")
+cell = Vector2(5, 6)
+
+[node name="Unit4" parent="Gameboard" instance=ExtResource("2_brx37")]
+position = Vector2(480, 32)
+stat = SubResource("Resource_vo55k")
+tex = ExtResource("15_lcvph")
+cell = Vector2(7, 0)
+
+[node name="Unit5" parent="Gameboard" instance=ExtResource("2_brx37")]
+position = Vector2(608, 96)
+stat = SubResource("Resource_pjm8e")
+tex = ExtResource("16_eukwx")
+cell = Vector2(9, 1)
+
+[node name="DebugUI" type="Control" parent="." node_paths=PackedStringArray("gb", "u", "uList")]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -44.0
+offset_top = 18.0
+offset_right = -4.0
+offset_bottom = 58.0
+script = ExtResource("5_bdpbv")
+gb = NodePath("../Gameboard")
+u = NodePath("../Gameboard/Unit")
+uList = [NodePath("../Gameboard/Unit"), NodePath("../Gameboard/Unit4"), NodePath("../Gameboard/Unit5")]
+hd = SubResource("Resource_uutrq")
+
+[node name="CursorPosition" type="Label" parent="DebugUI"]
+layout_mode = 0
+offset_left = 381.0
+offset_top = 47.0
+offset_right = 421.0
+offset_bottom = 70.0
+text = "(0,0)"
+
+[node name="CheckDoors" type="Button" parent="DebugUI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.639
+anchor_top = 1.605
+anchor_right = 9.562
+anchor_bottom = 9.528
+offset_left = -248.56
+offset_top = -82.2
+offset_right = -408.48
+offset_bottom = -359.12
+text = "Check for Doors"
+
+[node name="OpenDoors" type="Button" parent="DebugUI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.673
+anchor_top = 1.69
+anchor_right = 9.562
+anchor_bottom = 9.562
+offset_left = -251.92
+offset_top = -44.6
+offset_right = -411.48
+offset_bottom = -323.48
+text = "Open Doors"
+
+[node name="CheckChests" type="Button" parent="DebugUI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.639
+anchor_top = 1.605
+anchor_right = 9.562
+anchor_bottom = 9.528
+offset_left = -252.56
+offset_top = -6.2
+offset_right = -412.48
+offset_bottom = -283.12
+text = "Check for Chests"
+
+[node name="OpenChests" type="Button" parent="DebugUI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.673
+anchor_top = 1.69
+anchor_right = 9.562
+anchor_bottom = 9.562
+offset_left = -249.92
+offset_top = 31.4
+offset_right = -409.48
+offset_bottom = -247.48
+text = "Open Chests"
+
+[node name="CheckInventory" type="Button" parent="DebugUI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.639
+anchor_top = 1.605
+anchor_right = 9.562
+anchor_bottom = 9.528
+offset_left = -662.56
+offset_top = -31.2
+offset_right = -846.48
+offset_bottom = -308.12
+text = "Print Inventory"
+
+[node name="SortInventory" type="Button" parent="DebugUI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.639
+anchor_top = 1.605
+anchor_right = 9.562
+anchor_bottom = 9.528
+offset_left = -523.56
+offset_top = -30.2
+offset_right = -683.48
+offset_bottom = -307.12
+text = "Sort Inventory"
+
+[node name="AddDogsToInv" type="Button" parent="DebugUI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.639
+anchor_top = 1.605
+anchor_right = 9.562
+anchor_bottom = 9.528
+offset_left = -738.56
+offset_top = 9.8
+offset_right = -850.48
+offset_bottom = -267.12
+text = "Add Hot Dog to Inventory"
+
+[node name="EquipItem0" type="Button" parent="DebugUI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.639
+anchor_top = 1.605
+anchor_right = 9.562
+anchor_bottom = 9.528
+offset_left = -523.56
+offset_top = 11.8
+offset_right = -683.48
+offset_bottom = -265.12
+text = "Equip Weapon 1"
+
+[node name="PrintStats" type="Button" parent="DebugUI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.639
+anchor_top = 1.605
+anchor_right = 9.562
+anchor_bottom = 9.528
+offset_left = 233.44
+offset_top = 213.8
+offset_right = 12.52
+offset_bottom = -63.12
+text = "Print Stats"
+
+[node name="LevelUp" type="Button" parent="DebugUI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.639
+anchor_top = 1.605
+anchor_right = 9.562
+anchor_bottom = 9.528
+offset_left = -543.56
+offset_top = 129.8
+offset_right = -703.48
+offset_bottom = -147.12
+text = "Level Up"
+
+[node name="Initialize" type="Button" parent="DebugUI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.639
+anchor_top = 1.605
+anchor_right = 9.562
+anchor_bottom = 9.528
+offset_left = 48.44
+offset_top = -12.2
+offset_right = -188.48
+offset_bottom = -289.12
+text = "<Initialize All>"
+
+[node name="FixRNs" type="Button" parent="DebugUI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.639
+anchor_top = 1.605
+anchor_right = 9.562
+anchor_bottom = 9.528
+offset_left = -379.56
+offset_top = 131.8
+offset_right = -554.48
+offset_bottom = -145.12
+text = "Fix RNs"
+
+[node name="DrawReach" type="Button" parent="DebugUI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.639
+anchor_top = 1.605
+anchor_right = 9.562
+anchor_bottom = 9.528
+offset_left = -509.56
+offset_top = 316.8
+offset_right = -669.48
+offset_bottom = 39.88
+text = "Draw Reach"
+
+[node name="RefreshStock" type="Button" parent="DebugUI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.639
+anchor_top = 1.605
+anchor_right = 9.562
+anchor_bottom = 9.528
+offset_left = 81.44
+offset_top = 253.8
+offset_right = -159.48
+offset_bottom = -23.12
+text = "Restock"
+
+[node name="OptionButton" type="OptionButton" parent="DebugUI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 2.692
+anchor_top = 1.331
+anchor_right = 10.708
+anchor_bottom = 9.166
+offset_left = 120.32
+offset_top = 263.76
+offset_right = -5.32001
+offset_bottom = -7.64001
+allow_reselect = true
+script = ExtResource("15_uutrq")
+
+[node name="DrawWalkReach" type="Button" parent="DebugUI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.639
+anchor_top = 1.605
+anchor_right = 9.562
+anchor_bottom = 9.528
+offset_left = -503.56
+offset_top = 367.8
+offset_right = -654.48
+offset_bottom = 90.88
+text = "Draw Walking Reach"
+
+[node name="DrawOutline" type="Button" parent="DebugUI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.639
+anchor_top = 1.605
+anchor_right = 9.562
+anchor_bottom = 9.528
+offset_left = -344.56
+offset_top = 317.8
+offset_right = -495.48
+offset_bottom = 40.88
+text = "Draw Walk Outline"
+
+[node name="TestLocal" type="Button" parent="DebugUI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.639
+anchor_top = 1.605
+anchor_right = 9.562
+anchor_bottom = 9.528
+offset_left = -797.56
+offset_top = 127.8
+offset_right = -948.48
+offset_bottom = -149.12
+text = "NAME_ARTEMIS"
+
+[node name="SelfBattle" type="Button" parent="DebugUI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.639
+anchor_top = 1.605
+anchor_right = 9.562
+anchor_bottom = 9.528
+offset_left = -367.56
+offset_top = -80.2
+offset_right = -583.48
+offset_bottom = -357.12
+text = "Self Battle?"
+
+[node name="ChangeUnit" type="Button" parent="DebugUI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.639
+anchor_top = 1.605
+anchor_right = 9.562
+anchor_bottom = 9.528
+offset_left = 48.44
+offset_top = 257.8
+offset_right = -241.48
+offset_bottom = -28.12
+text = ">"
+
+[node name="Damage" type="Button" parent="DebugUI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.639
+anchor_top = 1.605
+anchor_right = 9.562
+anchor_bottom = 9.528
+offset_left = 50.44
+offset_top = 210.8
+offset_right = -150.48
+offset_bottom = -66.12
+text = "Damage by 1"
+
+[node name="PrintPseudos" type="Button" parent="DebugUI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.639
+anchor_top = 1.605
+anchor_right = 9.562
+anchor_bottom = 9.528
+offset_left = 51.44
+offset_top = 166.8
+offset_right = -120.48
+offset_bottom = -110.12
+text = "Print Pseudostats"
+
+[node name="Ghost" type="Button" parent="DebugUI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.639
+anchor_top = 1.605
+anchor_right = 9.562
+anchor_bottom = 9.528
+offset_left = -219.56
+offset_top = 134.8
+offset_right = -420.48
+offset_bottom = -142.12
+text = "Ghost Me!"
+
+[node name="BloodTest" type="Button" parent="DebugUI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.639
+anchor_top = 1.605
+anchor_right = 9.562
+anchor_bottom = 9.528
+offset_left = -220.56
+offset_top = 450.8
+offset_right = -421.48
+offset_bottom = 173.88
+text = "Blood Test"
+
+[node name="FillTest" type="Button" parent="DebugUI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.639
+anchor_top = 1.605
+anchor_right = 9.562
+anchor_bottom = 9.528
+offset_left = -222.56
+offset_top = 497.8
+offset_right = -423.48
+offset_bottom = 220.88
+text = "Fill Time
+"
+
+[node name="AdvanceRN" type="Button" parent="DebugUI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.639
+anchor_top = 1.605
+anchor_right = 9.562
+anchor_bottom = 9.528
+offset_left = 195.44
+offset_top = -9.2
+offset_right = -20.48
+offset_bottom = -286.12
+text = "Advance RN"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = -213.0
+offset_top = 162.0
+offset_right = -88.0
+offset_bottom = 189.0
+text = "NAME_ARTEMIS"
+
+[node name="BattlePredictionUI" parent="." instance=ExtResource("19_eukwx")]
+offset_left = 62.0
+offset_top = 123.0
+offset_right = 62.0
+offset_bottom = 123.0
+
+[connection signal="pressed" from="DebugUI/CheckDoors" to="DebugUI" method="_on_check_doors_pressed"]
+[connection signal="pressed" from="DebugUI/OpenDoors" to="DebugUI" method="_on_open_doors_pressed"]
+[connection signal="pressed" from="DebugUI/CheckChests" to="DebugUI" method="_on_check_chests_pressed"]
+[connection signal="pressed" from="DebugUI/OpenChests" to="DebugUI" method="_on_open_chests_pressed"]
+[connection signal="pressed" from="DebugUI/CheckInventory" to="DebugUI" method="_on_check_inventory_pressed"]
+[connection signal="pressed" from="DebugUI/SortInventory" to="DebugUI" method="_on_sort_inventory_pressed"]
+[connection signal="pressed" from="DebugUI/AddDogsToInv" to="DebugUI" method="_on_add_dogs_to_inv_pressed"]
+[connection signal="pressed" from="DebugUI/EquipItem0" to="DebugUI" method="_on_equip_item_0_pressed"]
+[connection signal="pressed" from="DebugUI/PrintStats" to="DebugUI" method="_on_print_stats_pressed"]
+[connection signal="pressed" from="DebugUI/LevelUp" to="DebugUI" method="_on_level_up_pressed"]
+[connection signal="pressed" from="DebugUI/Initialize" to="DebugUI" method="_on_initialize_pressed"]
+[connection signal="pressed" from="DebugUI/FixRNs" to="DebugUI" method="_on_fix_r_ns_pressed"]
+[connection signal="pressed" from="DebugUI/DrawReach" to="DebugUI" method="_on_draw_reach_pressed"]
+[connection signal="pressed" from="DebugUI/RefreshStock" to="DebugUI" method="_on_refresh_stock_pressed"]
+[connection signal="item_selected" from="DebugUI/OptionButton" to="DebugUI" method="_on_option_button_item_selected"]
+[connection signal="pressed" from="DebugUI/DrawWalkReach" to="DebugUI" method="_on_draw_walk_reach_pressed"]
+[connection signal="pressed" from="DebugUI/DrawOutline" to="DebugUI" method="_on_draw_outline_pressed"]
+[connection signal="pressed" from="DebugUI/TestLocal" to="DebugUI" method="_on_test_local_pressed"]
+[connection signal="pressed" from="DebugUI/SelfBattle" to="DebugUI" method="_on_self_battle_pressed"]
+[connection signal="pressed" from="DebugUI/ChangeUnit" to="DebugUI" method="_on_change_unit_pressed"]
+[connection signal="pressed" from="DebugUI/Damage" to="DebugUI" method="_on_damage_pressed"]
+[connection signal="pressed" from="DebugUI/PrintPseudos" to="DebugUI" method="_on_print_pseudos_pressed"]
+[connection signal="pressed" from="DebugUI/Ghost" to="DebugUI" method="_on_ghost_pressed"]
+[connection signal="pressed" from="DebugUI/BloodTest" to="DebugUI" method="_on_blood_test_pressed"]
+[connection signal="pressed" from="DebugUI/FillTest" to="DebugUI" method="_on_fill_test_pressed"]
+[connection signal="pressed" from="DebugUI/AdvanceRN" to="DebugUI" method="_on_advance_rn_pressed"]

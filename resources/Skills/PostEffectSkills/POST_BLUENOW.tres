@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="SkillPostEffect_BlueNow" load_steps=2 format=3 uid="uid://beeg6psljlxdd"]
+
+[ext_resource type="Script" uid="uid://cyyqn8t5kqyyg" path="res://scripts/skills/postEffectSkills/blueNow.gd" id="1_qcmds"]
+
+[resource]
+script = ExtResource("1_qcmds")
+name = "POST_BLUENOW"
+thumbPath = ""
+desc = "<You're blue now. That's my attack.>"
+metadata/_custom_type_script = "uid://cyyqn8t5kqyyg"

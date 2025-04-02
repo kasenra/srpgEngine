@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="SkillAdjustor_BloodyCrit" load_steps=2 format=3 uid="uid://cig4xevhlrie8"]
+
+[ext_resource type="Script" uid="uid://dhqmxew5icy8g" path="res://scripts/skills/adjustorSkills/bloodyCrit.gd" id="1_p815x"]
+
+[resource]
+script = ExtResource("1_p815x")
+critBonus = 20
+recipBloody = 2
+enemy_side = false
+name = "SKILL_BLOODYCRIT_BASIC"
+thumbPath = ""
+desc = "<Wearer gains 20 crit when below half HP>"
+metadata/_custom_type_script = "uid://dhqmxew5icy8g"

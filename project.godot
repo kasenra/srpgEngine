@@ -1,0 +1,72 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="SRPG Engine"
+run/main_scene="res://scenes/test_map.tscn"
+config/features=PackedStringArray("4.4", "GL Compatibility")
+config/icon="res://icon.svg"
+
+[autoload]
+
+Codex="*res://scripts/codex.gd"
+RNG="*res://scripts/RNG.gd"
+GameState="*res://scripts/gameState.gd"
+SaveState="*res://scripts/saveState.gd"
+Util="*res://scripts/util.gd"
+UISignal="*res://scripts/UI/UISignal.gd"
+
+[file_customization]
+
+folder_colors={
+"res://assetSource/": "red",
+"res://localization/": "orange",
+"res://resources/": "yellow",
+"res://scenes/": "green",
+"res://scripts/": "teal",
+"res://scripts/UI/": "pink",
+"res://scripts/ai/": "red",
+"res://scripts/battle/": "red",
+"res://scripts/characters/": "red",
+"res://scripts/classes/": "orange",
+"res://scripts/conditions/": "orange",
+"res://scripts/debug/": "orange",
+"res://scripts/dialogue/": "yellow",
+"res://scripts/inventories/": "yellow",
+"res://scripts/items/": "green",
+"res://scripts/savedgames/": "blue",
+"res://scripts/skills/": "purple",
+"res://scripts/unit_factory/": "pink",
+"res://sfx/": "blue",
+"res://texture/": "blue"
+}
+
+[global_group]
+
+unit="Group for getting units on a map INCLUDING dead ones."
+
+[input]
+
+click={
+"deadzone": 0.2,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(100, 6),"global_position":Vector2(109, 54),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
+]
+}
+
+[internationalization]
+
+locale/translations=PackedStringArray("res://localization/localizationMaster.en.translation", "res://localization/localizationMaster.es.translation")
+locale/test="es"
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
